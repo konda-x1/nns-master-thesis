@@ -1,0 +1,12 @@
+{signal: [
+  {                                   node: '.....A.B..'},
+  {name: 'clock', wave: 'p.........'},
+  {name: 'bits', wave: 'x.=....x..', data: ['data']},
+  {name: 'valid', wave: 'x.1....x..'},
+  {name: 'ready', wave: '0....1..0.'},
+  {                                   node: '.....CXD..'},
+  {                                   node: '.....EYF..'},
+], edge: [
+  'A-C', 'B-D', 'C<->D', 'X-Y пренос података'
+]}
+
