@@ -1,0 +1,70 @@
+name: Build & Publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-build:
+    name: Check if a new release is necessary
+    runs-on: ubuntu-latest
+    outputs:
+      should-build: ${{ steps.new-version.outputs.version == 'v1' || steps.changes.outputs.sources == 'true' }}
+      next-version: ${{ steps.new-version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Calculate next release version
+        id: new-version
+        run: |
+          LAST_VERSION_NUM=$(git tag | awk -F'v' '/^v/ && NF == 2{sub($1 FS, ""); print}' | sort -n | tail -n 1)
+          [ "$LAST_VERSION_NUM" ] || LAST_VERSION_NUM=0
+          <<< "version=v$((LAST_VERSION_NUM + 1))" tee "$GITHUB_OUTPUT"
+      - name: Check if source files have changed
+        id: changes
+        uses: dorny/paths-filter@v2
+        with:
+          filters: |
+            sources:
+              - 'main.tex'
+              - 'main.bib'
+              - 'finthesis.cls'
+              - 'slike/**'
+              - 'finthesis_assets/**'
+
+  build-publish:
+    name: Build and publish PDF
+    runs-on: ubuntu-latest
+    needs: check-build
+    if: ${{ needs.check-build.outputs.should-build == 'true' }}
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.job }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up environment
+        run: |
+          DATE=$(date "+%Y-%m-%d")
+          VERSION=${{ needs.check-build.outputs.next-version }}
+          RELEASE_NAME="Master rad $VERSION"
+          PDF_PATH="NNS_Master_rad_${VERSION}_${DATE}.pdf"
+          TAG_NAME=$VERSION
+          for var in RELEASE_NAME PDF_PATH TAG_NAME; do
+            echo "$var=${!var}" >> $GITHUB_ENV
+          done
+      - name: Build PDF
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+      - run: mv main.pdf "${{ env.PDF_PATH }}"
+      - name: Publish release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          artifacts: ${{ env.PDF_PATH }}
+          commit: ${{ github.sha }}
+          name: ${{ env.RELEASE_NAME }}
+          tag: ${{ env.TAG_NAME }}
