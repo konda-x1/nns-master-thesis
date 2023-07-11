@@ -16,6 +16,9 @@ A purpose of this thesis is to develop a digital hardware implementation of the 
 
 **Keywords:** nearest neighbour search, k-dimensional tree, read-only memory, software simulation, hardware validation and verification.
 
+## Published Papers
+
+* Aleksandar Z. Kondić and Vladmir M. Milovanović. “Hardware Realization of Nearest Neighbour Search Algorithm over an In-Memory Pre-Stored k-d Tree”. In: PROCEEDINGS IX International Conference IcETRAN and LXVI ETRAN Conference, Novi Pazar, Serbia, 6&ndash;9. June, 2022. ETRAN Society, Belgrade, pp. 1&ndash;6. ISBN: 978-86-7466-930-3. [PDF](https://www.etran.rs/2022/zbornik/ICETRAN-22_radovi/041-ELI1.4.pdf)
 
 # Хардверска реалзиација алгоритма претраге најближег суседа унутар $k$-димензионалног стабла
 
@@ -34,3 +37,7 @@ A purpose of this thesis is to develop a digital hardware implementation of the 
 Циљ овог Мастер рада је спровођење дигиталне хардверске реализације алгоритма за претраживање најближег суседа (NNS) $k$-димензионалне тачке. Претраживање најближег суседа неке тачке подразумева налажење тачке из унапред дефинисаног скупа тачака са најмањим еуклидским растојањем од ње. Алгоритам претраге користи $k$-димензионално стабло као структуру података која садржи све унапред дефинисане тачке за претрагу. Подаци о тачкама, као и о структури самог стабла се складиште унутар меморије само за читање (ROM). Решење је реализовано као генератор дигиталних хардверских модула посредством Chisel обласно-специфичног језика (DSL). Провера исправности реализације спроводи се кроз софтверске симулације и хардверску валидацију и верификацију.
 
 **Кључне речи:** претраживање најближег суседа, $k$-димензионално стабло, меморија само за читање, софтверска симулација, хардверска валидација и верификација.
+
+## Објављени радови
+
+* Aleksandar Z. Kondić и Vladmir M. Milovanović, „Hardware Realization of Nearest Neighbour Search Algorithm over an In-Memory Pre-Stored k-d Tree”, у: PROCEEDINGS IX International Conference IcETRAN and LXVI ETRAN Conference, Novi Pazar, Serbia, 6&ndash;9. June, 2022. ETRAN Society, Belgrade, стр. 1&ndash;6, ISBN: 978-86-7466-930-3. [PDF](https://www.etran.rs/2022/zbornik/ICETRAN-22_radovi/041-ELI1.4.pdf)
