@@ -1,4 +1,4 @@
-# Hardware Realization of Nearest Neighbour Search Algorithm Over а $k$-Dimensional Tree
+# Hardware Realization of Nearest Neighbour Search Algorithm Over а $`k`$-Dimensional Tree
 
 This master's thesis explores the use [Chisel](https://www.chisel-lang.org/)&mdash;a hardware description language embedded in the [Scala](https://www.scala-lang.org/) programming language&mdash;for creating a parameterized generator of digital hardware instances that execute the [Nearest Neighbour Search (NNS)](https://en.wikipedia.org/wiki/Nearest_neighbor_search) algorithm using a [k-dimensional tree](https://en.wikipedia.org/wiki/K-d_tree) that is pre-stored in memory.
 
@@ -20,7 +20,7 @@ A purpose of this thesis is to develop a digital hardware implementation of the 
 
 * Aleksandar Z. Kondić and Vladmir M. Milovanović. “Hardware Realization of Nearest Neighbour Search Algorithm over an In-Memory Pre-Stored k-d Tree”. In: PROCEEDINGS IX International Conference IcETRAN and LXVI ETRAN Conference, Novi Pazar, Serbia, 6&ndash;9. June, 2022. ETRAN Society, Belgrade, pp. 1&ndash;6. ISBN: 978-86-7466-930-3. [PDF](https://www.etran.rs/2022/zbornik/ICETRAN-22_radovi/041-ELI1.4.pdf)
 
-# Хардверска реалзиација алгоритма претраге најближег суседа унутар $k$-димензионалног стабла
+# Хардверска реализација алгоритма претраге најближег суседа унутар $`k`$-димензионалног стабла
 
 Овај Мастер рад истражује употребу [Chisel](https://www.chisel-lang.org/)-а&mdash;језика за опис хардвера уграђеног у програмски језик [Scala](https://www.scala-lang.org/)&mdash;за креирање параметризованог генератора дигиталних хардверских инстанци које извршавају алгоритам за [претрагу најближег суседа (NNS)](https://en.wikipedia.org/wiki/Nearest_neighbor_search) коришћењем [k-димензионалног стабла](https://en.wikipedia.org/wiki/K-d_tree) које је унапред ускладиштено у меморији.
 
